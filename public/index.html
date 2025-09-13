@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>West Bridgford Colts U10 Rosario - Season 2024/25</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        
+        .header .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .stats-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .stats-grid.goals-row {
+            grid-template-columns: repeat(3, 1fr);
+            margin-top: 15px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 6px;
+        }
+        
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #DC143C;
+        }
+        
+        .stat-value.positive {
+            color: #4CAF50;
+        }
+        
+        .stat-value.negative {
+            color: #f44336;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        .player-leaderboards {
+            margin-bottom: 20px;
+        }
+        
+        .leaderboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+        
+        .leaderboard {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .leaderboard h3 {
+            font-size: 14px;
+            margin-bottom: 12px;
+            color: #333;
+            text-align: center;
+        }
+        
+        .leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .leaderboard thead tr {
+            border-bottom: 2px solid #DC143C;
+        }
+        
+        .leaderboard th {
+            font-size: 11px;
+            text-transform: uppercase;
+            color: #666;
+            padding: 8px 4px;
+            text-align: left;
+        }
+        
+        .leaderboard th:last-child {
+            text-align: center;
+            width: 60px;
+        }
+        
+        .leaderboard tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .leaderboard tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .leaderboard td {
+            padding: 8px 4px;
+            font-size: 13px;
+        }
+        
+        .leaderboard td.stat {
+            text-align: center;
+            font-weight: bold;
+            color: #DC143C;
+        }
+        
+        .season-player-stats {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .season-player-stats h2 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        
+        .match-card {
+            background: white;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .match-header {
+            padding: 15px 20px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .match-header:hover {
+            background: #f0f0f0;
+        }
+        
+        .match-date {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        
+        .match-score {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .teams {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 4px;
+        }
+        
+        .win {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .loss {
+            background: #f44336;
+            color: white;
+        }
+        
+        .draw {
+            background: #FF9800;
+            color: white;
+        }
+        
+        .location {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+        }
+        
+        .match-details {
+            padding: 20px;
+            display: none;
+            border-top: 2px solid #DC143C;
+        }
+        
+        .match-details.show {
+            display: block;
+        }
+        
+        .player-stats {
+            margin-top: 15px;
+        }
+        
+        .player-stats h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .stats-table-container {
+            overflow-x: auto;
+        }
+        
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        .stats-table thead {
+            background: #f9f9f9;
+        }
+        
+        .stats-table th {
+            padding: 8px 6px;
+            text-align: center;
+            border-bottom: 2px solid #DC143C;
+            font-weight: 600;
+        }
+        
+        .stats-table th:first-child {
+            text-align: left;
+            background: white;
+        }
+        
+        .stats-table tbody tr {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .stats-table tbody tr:last-child {
+            border-bottom: none;
+        }
+        
+        .stats-table td {
+            padding: 8px 6px;
+            text-align: center;
+        }
+        
+        .stats-table td.stat-label {
+            text-align: left;
+            font-weight: 600;
+            color: #666;
+        }
+        
+        .highlight {
+            color: #DC143C;
+            font-weight: 600;
+        }
+        
+        .stat-appearances {
+            color: #2196F3;
+            font-weight: 600;
+        }
+        
+        .stat-goals {
+            color: #4CAF50;
+            font-weight: 600;
+        }
+        
+        .stat-assists {
+            color: #FF9800;
+            font-weight: 600;
+        }
+        
+        .stat-gk {
+            color: #9C27B0;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 20px;
+            }
+            
+            .match-score {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .score {
+                margin-top: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stats-grid.goals-row {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .leaderboard-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>West Bridgford Colts U10 Rosario</h1>
+        <div class="subtitle">Season 2024/25 Results & Stats</div>
+    </div>
+    
+    <div class="container">
+        <div class="stats-summary">
+            <h2>Season Summary</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">Played</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">1</div>
+                    <div class="stat-label">Won</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Drawn</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">Lost</div>
+                </div>
+            </div>
+            <div class="stats-grid goals-row">
+                <div class="stat-card">
+                    <div class="stat-value">5</div>
+                    <div class="stat-label">Goals For</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">2</div>
+                    <div class="stat-label">Goals Against</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value positive">+3</div>
+                    <div class="stat-label">Goal Difference</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="player-leaderboards">
+            <div class="leaderboard-grid">
+                <div class="leaderboard">
+                    <h3>⚽ Top Scorers</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Goals</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Oliver</td>
+                                <td class="stat">3</td>
+                            </tr>
+                            <tr>
+                                <td>George</td>
+                                <td class="stat">1</td>
+                            </tr>
+                            <tr>
+                                <td>Chester</td>
+                                <td class="stat">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="leaderboard">
+                    <h3>🎯 Top Assists</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Assists</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jimmy</td>
+                                <td class="stat">3</td>
+                            </tr>
+                            <tr>
+                                <td>Chester</td>
+                                <td class="stat">1</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="leaderboard">
+                    <h3>🧤 Goalkeeper Games</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Player</th>
+                                <th>Games</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Jimmy</td>
+                                <td class="stat">1 (0.5)</td>
+                            </tr>
+                            <tr>
+                                <td>Salar</td>
+                                <td class="stat">1 (0.25)</td>
+                            </tr>
+                            <tr>
+                                <td>Chester</td>
+                                <td class="stat">1 (0.25)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="season-player-stats">
+            <h2>Season Player Statistics</h2>
+            <div class="stats-table-container">
+                <table class="stats-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Chester</th>
+                            <th>Ethan</th>
+                            <th>George</th>
+                            <th>Jimmy</th>
+                            <th>Leo</th>
+                            <th>Noah</th>
+                            <th>Oliver</th>
+                            <th>Salar</th>
+                            <th>Seb</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="stat-label">Appearances</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                            <td class="stat-appearances">1</td>
+                        </tr>
+                        <tr>
+                            <td class="stat-label">Goals</td>
+                            <td class="stat-goals">1</td>
+                            <td>-</td>
+                            <td class="stat-goals">1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="stat-goals">3</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td class="stat-label">Assists</td>
+                            <td class="stat-assists">1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="stat-assists">3</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td class="stat-label">GK Appearances</td>
+                            <td class="stat-gk">1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="stat-gk">1</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td class="stat-gk">1</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <div class="match-card">
+            <div class="match-header" onclick="toggleDetails(this)">
+                <div class="match-date">Saturday, 7th September 2024</div>
+                <div class="match-score">
+                    <div class="teams">Rosario vs Eastwood Athletic White</div>
+                    <div class="score win">5 - 2</div>
+                </div>
+                <div class="location">📍 Gresham Grass</div>
+            </div>
+            <div class="match-details">
+                <div class="player-stats">
+                    <h3>Player Statistics</h3>
+                    <div class="stats-table-container">
+                        <table class="stats-table">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Chester</th>
+                                    <th>Ethan</th>
+                                    <th>George</th>
+                                    <th>Jimmy</th>
+                                    <th>Leo</th>
+                                    <th>Noah</th>
+                                    <th>Oliver</th>
+                                    <th>Salar</th>
+                                    <th>Seb</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="stat-label">Minutes</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                    <td>50</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                    <td>37.5</td>
+                                </tr>
+                                <tr>
+                                    <td class="stat-label">Goals</td>
+                                    <td class="highlight">1</td>
+                                    <td>-</td>
+                                    <td class="highlight">1</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td class="highlight">3</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="stat-label">Assists</td>
+                                    <td class="highlight">1</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td class="highlight">3</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="stat-label">GK</td>
+                                    <td>🧤</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>🧤</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>🧤</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td class="stat-label">Sub</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>🔄</td>
+                                    <td>-</td>
+                                    <td>🔄</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function toggleDetails(element) {
+            const details = element.nextElementSibling;
+            details.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
