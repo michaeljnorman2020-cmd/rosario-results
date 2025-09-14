@@ -26,7 +26,7 @@ const App = () => {
     }
 
        {
-      date: 'Sundat, 14th September 2024',
+      date: 'Sunday, 14th September 2024',
       opponent: 'Cotgrave White',
       home: false,
       score: { for: 10, against: 0 },
