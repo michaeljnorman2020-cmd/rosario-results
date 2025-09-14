@@ -11,7 +11,7 @@ const App = () => {
       opponent: 'Eastwood Athletic Atalanta',
       home: true,
       score: { for: 5, against: 2 },
-      location: 'Gresham Grass',
+      location: 'Gresham - Grass',
       stats: {
         Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false },
         Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
@@ -21,7 +21,7 @@ const App = () => {
         Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
         Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true },
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false }
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
          }
     },
   {
@@ -29,14 +29,14 @@ const App = () => {
       opponent: 'Cotgrave White',
       home: false,
       score: { for: 10, against: 0 },
-      location: 'Gresham Grass',
+      location: 'Cotgrave - Grass',
       stats: {
         Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false },
         Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false},
         George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
         Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false },
-        Leo: { mins: 50, goals: 2, assists: 1, gk: false, sub: false },
-        Noah: { mins: 50, goals: 1, assists: 2, gk: true, sub: false },
+        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false },
+        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false },
         Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false },
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
         Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false }
