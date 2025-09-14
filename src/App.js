@@ -21,13 +21,9 @@ const App = () => {
         Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
         Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true },
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
-      }
-    }
-    // ADD NEW MATCHES HERE - just copy the format above
-  ]);
-
- const [matches] = useState([
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false }
+         }
+    },
   {
   date: 'Sunday, 14th September 2024',
       opponent: 'Cotgrave White',
@@ -45,6 +41,7 @@ const App = () => {
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
         Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false }
       }
+  }
     ]);
   
   const [expandedMatch, setExpandedMatch] = useState(null);
