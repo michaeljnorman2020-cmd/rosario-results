@@ -23,9 +23,7 @@ const App = () => {
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
         Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
       }
-    }
 
-       {
       date: 'Sunday, 14th September 2024',
       opponent: 'Cotgrave White',
       home: false,
