@@ -31,15 +31,15 @@ const App = () => {
       score: { for: 10, against: 0 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkmins: 12.5},
-        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkmins: 0},
-        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkmins: 25},
-        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkmins: 12.5},
-        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkmins: 0},
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkmins: 0},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
-        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkmins: 0}
+        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5},
+        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0},
+        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25},
+        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5},
+        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0},
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0}
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
