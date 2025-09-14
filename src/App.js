@@ -13,15 +13,15 @@ const App = () => {
       score: { for: 5, against: 2 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkmins: 12.5},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
-        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkmins: 0},
-        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkmins: 25},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
-        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkmins: 0},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkmins: 12.5},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkmins: 0}
+        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0},
+        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0}
       }
     },
     {
