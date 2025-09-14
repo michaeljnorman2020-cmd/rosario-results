@@ -35,8 +35,8 @@ const App = () => {
         Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkmins: 0},
         George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
         Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkmins: 25},
-        Leo: { mins: 50, goals: 2, assists: 1, gk: false, sub: false, gkmins: 12.5},
-        Noah: { mins: 50, goals: 1, assists: 2, gk: true, sub: false, gkmins: 0},
+        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkmins: 12.5},
+        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkmins: 0},
         Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkmins: 0},
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
         Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkmins: 0}
