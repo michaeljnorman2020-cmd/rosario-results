@@ -7,8 +7,8 @@ const App = () => {
   // Match data - ADD NEW MATCHES HERE
   const [matches] = useState([
     {
-      date: 'Saturday, 7th September 2024',
-      opponent: 'Eastwood Athletic White',
+      date: 'Sunday, 7th September 2024',
+      opponent: 'Eastwood Athletic Atalanta',
       home: true,
       score: { for: 5, against: 2 },
       location: 'Gresham Grass',
@@ -22,6 +22,25 @@ const App = () => {
         Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true },
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
         Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
+      }
+    }
+
+       {
+      date: 'Sundat, 14th September 2024',
+      opponent: 'Cotgrave White',
+      home: false,
+      score: { for: 10, against: 0 },
+      location: 'Gresham Grass',
+      stats: {
+        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false },
+        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false},
+        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false },
+        Leo: { mins: 50, goals: 2, assists: 1, gk: false, sub: false },
+        Noah: { mins: 50, goals: 1, assists: 2, gk: true, sub: false },
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false },
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
+        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false }
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
