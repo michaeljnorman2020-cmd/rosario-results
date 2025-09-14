@@ -13,15 +13,15 @@ const App = () => {
       score: { for: 5, against: 2 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0},
-        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0}
+        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false },
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
+        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false },
+        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false },
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
+        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true },
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
       }
     },
     {
@@ -31,15 +31,15 @@ const App = () => {
       score: { for: 10, against: 0 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5},
-        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0},
-        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25},
-        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5},
-        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0},
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0}
+        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false },
+        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false},
+        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false },
+        Leo: { mins: 50, goals: 2, assists: 1, gk: false, sub: false },
+        Noah: { mins: 50, goals: 1, assists: 2, gk: true, sub: false },
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false },
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
+        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false }
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
