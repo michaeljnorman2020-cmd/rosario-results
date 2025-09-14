@@ -7,39 +7,39 @@ const App = () => {
   // Match data - ADD NEW MATCHES HERE
   const [matches] = useState([
     {
-      date: 'Sunday, 7th September 2024',
+      date: 'Sunday, 7th September 2025',
       opponent: 'Eastwood Athletic Atalanta',
       home: true,
       score: { for: 5, against: 2 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false },
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
-        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false },
-        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false },
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false },
-        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true },
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false },
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true }
+        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0},
+        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
+        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0}
       }
     },
     {
-      date: 'Sunday, 14th September 2024',
+      date: 'Sunday, 14th September 2025',
       opponent: 'Cotgrave White',
       home: false,
       score: { for: 10, against: 0 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false },
-        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false},
-        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false },
-        Leo: { mins: 50, goals: 2, assists: 1, gk: false, sub: false },
-        Noah: { mins: 50, goals: 1, assists: 2, gk: true, sub: false },
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false },
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false },
-        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false }
+        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkmins: 12.5},
+        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkmins: 0},
+        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkmins: 25},
+        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkmins: 12.5},
+        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkmins: 0},
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkmins: 0},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkmins: 0},
+        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkmins: 0}
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
@@ -338,11 +338,14 @@ const App = () => {
         </div>
         
         {/* Match Cards */}
-        {matches.map((match, index) => (
-          <div key={index} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
+{matches
+  .map((match, index) => ({ ...match, originalIndex: index }))
+  .sort((a, b) => new Date(b.date) - new Date(a.date))
+  .map((match, displayIndex) => (
+    <div key={match.originalIndex} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
             <div 
               className="p-4 bg-gray-50 border-b cursor-pointer hover:bg-gray-100 transition-colors"
-              onClick={() => toggleMatch(index)}
+                onClick={() => toggleMatch(match.originalIndex)}
             >
               <div className="text-xs text-gray-600 mb-2">{match.date}</div>
               <div className="flex justify-between items-center flex-wrap">
@@ -358,7 +361,7 @@ const App = () => {
               <div className="text-xs text-gray-600 mt-2">📍 {match.location}</div>
             </div>
             
-            {expandedMatch === index && (
+              {expandedMatch === match.originalIndex && (
               <div className="p-5 border-t-2 border-red-700">
                 <h3 className="text-base font-bold mb-4">Player Statistics</h3>
                 <div className="overflow-x-auto">
@@ -370,7 +373,8 @@ const App = () => {
                           <th key={player} className="text-center p-2 border-b-2 border-red-700 font-semibold">
                             {player}
                           </th>
-                        ))}
+                        ))
+                  }
                       </tr>
                     </thead>
                     <tbody>
