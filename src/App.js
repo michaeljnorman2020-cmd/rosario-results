@@ -19,7 +19,7 @@ const App = () => {
         George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
         Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
         Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
