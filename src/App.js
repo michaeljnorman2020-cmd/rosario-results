@@ -187,7 +187,7 @@ const App = () => {
       {/* Header */}
       <div className="bg-gradient-to-br from-red-700 to-red-900 text-white py-6 text-center shadow-md">
         <h1 className="text-2xl font-bold mb-1">West Bridgford Colts U10 Rosario</h1>
-        <div className="text-sm opacity-90">Season 2024/25 Results & Stats</div>
+        <div className="text-sm opacity-90">Season 2025/26 Results & Stats</div>
       </div>
       
       <div className="max-w-6xl mx-auto p-5">
@@ -432,7 +432,7 @@ const App = () => {
                             </td>
                           ))}
                         </tr>
-                        <tr>
+                        <tr className="border-b">
                           <td className="p-2 font-semibold text-gray-600">Player's Player</td>
                           {players.map(player => (
                             <td key={player} className="text-center p-2">
