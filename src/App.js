@@ -8,56 +8,59 @@ const App = () => {
   const [matches] = useState([
     {
       date: 'Sunday, 7th September 2025',
+      sortDate: '2025-09-07',
       opponent: 'Eastwood Athletic Atalanta',
       home: true,
       score: { for: 5, against: 2 },
       location: 'Gresham Grass',
       stats: {
-        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0},
-        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0}
+        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
       }
     },
     {
       date: 'Sunday, 14th September 2025',
+      sortDate: '2025-09-14',
       opponent: 'Cotgrave White',
       home: false,
       score: { for: 10, against: 0 },
       location: 'Cotgrave Grass',
       stats: {
-        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5},
-        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0},
-        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25},
-        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5},
-        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0},
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0}
+        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5, pom: true},
+        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
+        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false}
       }
     },
     {
       date: 'Sunday, 21st September 2025',
+      sortDate: '2025-09-21',
       opponent: 'Coalville Town Ravenettes',
       home: true,
       score: { for: 2, against: 1 },
       location: 'Regatta Way Grass',
       stats: {
-        Chester: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 0},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        George: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5},
-        Noah: { mins: 37.5, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0},
-        Oliver: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 12.5},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0}
+        Chester: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        George: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: true},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Noah: { mins: 37.5, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
@@ -356,95 +359,102 @@ const App = () => {
         </div>
         
         {/* Match Cards */}
-{matches
-  .map((match, index) => ({ ...match, originalIndex: index }))
-  .sort((a, b) => new Date(b.date) - new Date(a.date))
-  .map((match, displayIndex) => (
-    <div key={match.originalIndex} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
-            <div 
-              className="p-4 bg-gray-50 border-b cursor-pointer hover:bg-gray-100 transition-colors"
+        {matches
+          .map((match, index) => ({ ...match, originalIndex: index }))
+          .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate))
+          .map((match, displayIndex) => (
+            <div key={match.originalIndex} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
+              <div 
+                className="p-4 bg-gray-50 border-b cursor-pointer hover:bg-gray-100 transition-colors"
                 onClick={() => toggleMatch(match.originalIndex)}
-            >
-              <div className="text-xs text-gray-600 mb-2">{match.date}</div>
-              <div className="flex justify-between items-center flex-wrap">
-                <div className="text-lg font-semibold">
-                  {match.home ? 'Rosario' : match.opponent} vs {match.home ? match.opponent : 'Rosario'}
+              >
+                <div className="text-xs text-gray-600 mb-2">{match.date}</div>
+                <div className="flex justify-between items-center flex-wrap">
+                  <div className="text-lg font-semibold">
+                    {match.home ? 'Rosario' : match.opponent} vs {match.home ? match.opponent : 'Rosario'}
+                  </div>
+                  <div className={`text-2xl font-bold px-4 py-1 rounded text-white
+                    ${getMatchResult(match) === 'win' ? 'bg-green-500' : 
+                      getMatchResult(match) === 'loss' ? 'bg-red-500' : 'bg-orange-500'}`}>
+                    {match.score.for} - {match.score.against}
+                  </div>
                 </div>
-                <div className={`text-2xl font-bold px-4 py-1 rounded text-white
-                  ${getMatchResult(match) === 'win' ? 'bg-green-500' : 
-                    getMatchResult(match) === 'loss' ? 'bg-red-500' : 'bg-orange-500'}`}>
-                  {match.score.for} - {match.score.against}
-                </div>
+                <div className="text-xs text-gray-600 mt-2">📍 {match.location}</div>
               </div>
-              <div className="text-xs text-gray-600 mt-2">📍 {match.location}</div>
-            </div>
-            
+              
               {expandedMatch === match.originalIndex && (
-              <div className="p-5 border-t-2 border-red-700">
-                <h3 className="text-base font-bold mb-4">Player Statistics</h3>
-                <div className="overflow-x-auto">
-                  <table className="w-full text-sm">
-                    <thead className="bg-gray-50">
-                      <tr>
-                        <th className="text-left p-2 border-b-2 border-red-700"></th>
-                        {players.map(player => (
-                          <th key={player} className="text-center p-2 border-b-2 border-red-700 font-semibold">
-                            {player}
-                          </th>
-                        ))
-                  }
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr className="border-b">
-                        <td className="p-2 font-semibold text-gray-600">Minutes</td>
-                        {players.map(player => (
-                          <td key={player} className="text-center p-2">{match.stats[player].mins}</td>
-                        ))}
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-semibold text-gray-600">Goals</td>
-                        {players.map(player => (
-                          <td key={player} className="text-center p-2">
-                            {match.stats[player].goals > 0 ? (
-                              <span className="highlight">{match.stats[player].goals}</span>
-                            ) : '-'}
-                          </td>
-                        ))}
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-semibold text-gray-600">Assists</td>
-                        {players.map(player => (
-                          <td key={player} className="text-center p-2">
-                            {match.stats[player].assists > 0 ? (
-                              <span className="highlight">{match.stats[player].assists}</span>
-                            ) : '-'}
-                          </td>
-                        ))}
-                      </tr>
-                      <tr className="border-b">
-                        <td className="p-2 font-semibold text-gray-600">GK</td>
-                        {players.map(player => (
-                          <td key={player} className="text-center p-2">
-                            {match.stats[player].gk ? '🧤' : '-'}
-                          </td>
-                        ))}
-                      </tr>
-                      <tr>
-                        <td className="p-2 font-semibold text-gray-600">Sub</td>
-                        {players.map(player => (
-                          <td key={player} className="text-center p-2">
-                            {match.stats[player].sub ? '🔄' : '-'}
-                          </td>
-                        ))}
-                      </tr>
-                    </tbody>
-                  </table>
+                <div className="p-5 border-t-2 border-red-700">
+                  <h3 className="text-base font-bold mb-4">Player Statistics</h3>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead className="bg-gray-50">
+                        <tr>
+                          <th className="text-left p-2 border-b-2 border-red-700"></th>
+                          {players.map(player => (
+                            <th key={player} className="text-center p-2 border-b-2 border-red-700 font-semibold">
+                              {player}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr className="border-b">
+                          <td className="p-2 font-semibold text-gray-600">Minutes</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">{match.stats[player].mins}</td>
+                          ))}
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-2 font-semibold text-gray-600">Goals</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">
+                              {match.stats[player].goals > 0 ? (
+                                <span className="highlight">{match.stats[player].goals}</span>
+                              ) : '-'}
+                            </td>
+                          ))}
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-2 font-semibold text-gray-600">Assists</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">
+                              {match.stats[player].assists > 0 ? (
+                                <span className="highlight">{match.stats[player].assists}</span>
+                              ) : '-'}
+                            </td>
+                          ))}
+                        </tr>
+                        <tr className="border-b">
+                          <td className="p-2 font-semibold text-gray-600">GK</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">
+                              {match.stats[player].gk ? '🧤' : '-'}
+                            </td>
+                          ))}
+                        </tr>
+                        <tr>
+                          <td className="p-2 font-semibold text-gray-600">Player's Player</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">
+                              {match.stats[player].pom ? '⭐' : '-'}
+                            </td>
+                          ))}
+                        </tr>
+                        <tr>
+                          <td className="p-2 font-semibold text-gray-600">Sub</td>
+                          {players.map(player => (
+                            <td key={player} className="text-center p-2">
+                              {match.stats[player].sub ? '🔄' : '-'}
+                            </td>
+                          ))}
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
-              </div>
-            )}
-          </div>
-        ))}
+              )}
+            </div>
+          ))}
       </div>
     </div>
   );
