@@ -40,7 +40,8 @@ const App = () => {
         Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0},
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0},
         Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0}
-      },
+      }
+    },
     {
       date: 'Sunday, 21st September 2025',
       opponent: 'Coalville Town Ravenettes',
