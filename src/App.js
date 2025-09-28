@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const App = () => {
   // Player names in alphabetical order
-  const players = ['Chester', 'Ethan', 'George', 'Jimmy', 'Leo', 'Noah', 'Oliver', 'Salar', 'Seb'];
+  const players = ['Chester', 'Ethan', 'George B', 'George G', 'Jimmy', 'Leo', 'Noah', 'Oliver', 'Salar', 'Seb'];
   
   // Match data - ADD NEW MATCHES HERE
   const [matches] = useState([
@@ -16,7 +16,8 @@ const App = () => {
       stats: {
         Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
         Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        George: { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
@@ -35,7 +36,8 @@ const App = () => {
       stats: {
         Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5, pom: true},
         Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
-        George: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
         Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
@@ -54,7 +56,8 @@ const App = () => {
       stats: {
         Chester: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 0, pom: false},
         Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        George: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: true},
         Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: true, gkMins: 12.5, pom: false},
         Noah: { mins: 37.5, goals: 1, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
