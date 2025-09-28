@@ -65,6 +65,26 @@ const App = () => {
         Salar: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 12.5, pom: false},
         Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 28th September 2025',
+      sortDate: '2025-09-28',
+      opponent: 'Wollaton H&B Gold',
+      home: true,
+      score: { for: 3, against: 2 },
+      location: 'Trinity School Grass',
+      stats: {
+        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 32.5, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: true},
+        Jimmy: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: true, gkMins: 12.5, pom: false},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 42.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
     // ADD NEW MATCHES HERE - just copy the format above
   ]);
