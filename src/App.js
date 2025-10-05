@@ -239,15 +239,15 @@ const App = () => {
           <h2 className="text-xl font-bold mb-4">Season Summary</h2>
           <div className="grid grid-cols-4 gap-4 mb-4">
             <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-red-700">{seasonStats.played}</div>
+              <div className="text-3xl font-bold text-black-700">{seasonStats.played}</div>
               <div className="text-xs uppercase text-gray-600 mt-1">Played</div>
             </div>
             <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-red-700">{seasonStats.won}</div>
+              <div className="text-3xl font-bold text-green-700">{seasonStats.won}</div>
               <div className="text-xs uppercase text-gray-600 mt-1">Won</div>
             </div>
             <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-red-700">{seasonStats.drawn}</div>
+              <div className="text-3xl font-bold text-amber-700">{seasonStats.drawn}</div>
               <div className="text-xs uppercase text-gray-600 mt-1">Drawn</div>
             </div>
             <div className="text-center p-3 bg-gray-50 rounded">
@@ -257,7 +257,7 @@ const App = () => {
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-red-700">{seasonStats.goalsFor}</div>
+              <div className="text-3xl font-bold text-green-700">{seasonStats.goalsFor}</div>
               <div className="text-xs uppercase text-gray-600 mt-1">Goals For</div>
             </div>
             <div className="text-center p-3 bg-gray-50 rounded">
