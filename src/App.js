@@ -85,6 +85,26 @@ const App = () => {
         Salar: { mins: 42.5, goals: 0, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
         Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 5th October 2025',
+      sortDate: '2025-10-05',
+      opponent: 'Carlton Town Blue',
+      home: true,
+      score: { for: 1, against: 3 },
+      location: 'Gresham 3G',
+      stats: {
+        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 45, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 34, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        'George G': { mins: 34, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 47.5, goals: 0, assists: 1, gk: true, sub: false, gkMins: 37.5, pom: false},
+        Leo: { mins: 47.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: true},
+        Noah: { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Salar: { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
     // ADD NEW MATCHES HERE - just copy the format above
   ]);
