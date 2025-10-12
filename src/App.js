@@ -105,6 +105,26 @@ const App = () => {
         Salar: { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 12th October 2025',
+      sortDate: '2025-10-12',
+      opponent: 'WBC Leverkusen',
+      home: false,
+      score: { for: 1, against: 9 },
+      location: 'Gresham 3G',
+      stats: {
+        Chester: { mins: 47.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Ethan: { mins: 35, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 45, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 35, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: true},
+        Noah: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Oliver: { mins: 35, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 42.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
+      }
     }
     // ADD NEW MATCHES HERE - just copy the format above
   ]);
