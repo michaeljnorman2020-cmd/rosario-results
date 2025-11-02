@@ -125,6 +125,26 @@ const App = () => {
         Salar: { mins: 42.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
         Seb: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 2nd November 2025',
+      sortDate: '2025-11-02',
+      opponent: 'Gedling Southbank Whites',
+      home: false,
+      score: { for: 0, against: 7 },
+      location: 'Redhill 3G',
+      stats: {
+        Chester: { mins: 47, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12, pom: false},
+        Ethan: { mins: 48, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 44, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 43, goals: 0, assists: 0, gk: true, sub: false, gkMins: 27, pom: false},
+        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 46, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Oliver: { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 46, goals: 0, assists: 0, gk: true, sub: false, gkMins: 11, pom: false},
+        Seb: { mins: 0, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
+      }
     }
     // ADD NEW MATCHES HERE - just copy the format above
   ]);
