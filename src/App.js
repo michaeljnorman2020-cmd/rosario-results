@@ -137,13 +137,33 @@ const App = () => {
         Chester: { mins: 47, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12, pom: false},
         Ethan: { mins: 48, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         'George B': { mins: 44, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
         Jimmy: { mins: 43, goals: 0, assists: 0, gk: true, sub: false, gkMins: 27, pom: false},
         Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 46, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Noah: { mins: 46, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Oliver: { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Salar: { mins: 46, goals: 0, assists: 0, gk: true, sub: false, gkMins: 11, pom: false},
-        Seb: { mins: 0, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
+        Seb: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
+    },
+    {
+      date: 'Sunday, 9th November 2025',
+      sortDate: '2025-11-09',
+      opponent: 'Clifton AW Green',
+      home: false,
+      score: { for: 1, against: 5 },
+      location: 'Regatta Way Grass',
+      stats: {
+        Chester: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 25, pom: true},
+        Ethan: { mins: 42, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        'George B': { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
     }
     // ADD NEW MATCHES HERE - just copy the format above
