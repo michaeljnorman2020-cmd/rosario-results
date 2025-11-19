@@ -150,7 +150,7 @@ const App = () => {
       date: 'Sunday, 9th November 2025',
       sortDate: '2025-11-09',
       opponent: 'Clifton AW Green',
-      home: false,
+      home: true,
       score: { for: 1, against: 5 },
       location: 'Regatta Way Grass',
       stats: {
@@ -165,7 +165,28 @@ const App = () => {
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 16th November 2025',
+      sortDate: '2025-11-16',
+      opponent: 'Cotgrave Green',
+      home: false,
+      score: { for: 1, against: 8 },
+      location: 'South Notts Academy 3G',
+      stats: {
+        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Noah: { mins: 37.5, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
+        Oliver: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: true, gkMins: 12.5, pom: false},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
+    
     // ADD NEW MATCHES HERE - just copy the format above
   ]);
   
