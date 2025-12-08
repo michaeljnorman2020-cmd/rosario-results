@@ -205,6 +205,26 @@ const App = () => {
         Salar: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
         Seb: { mins: 42.5, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 6th December 2025',
+      sortDate: '2025-12-06',
+      opponent: 'Ernehale',
+      home: true,
+      score: { for: 0, against: 2 },
+      location: 'NES Grass',
+      stats: {
+        Chester: { mins: 42, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Ethan: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 50, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
+        Leo: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
+        Oliver: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 40, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
     
     // ADD NEW MATCHES HERE - just copy the format above
