@@ -190,7 +190,7 @@ const App = () => {
       date: 'Sunday, 30th November 2025',
       sortDate: '2025-11-30',
       opponent: 'PFA White',
-      home: true,
+      home: false,
       score: { for: 2, against: 4 },
       location: 'Great Ponton Grass',
       stats: {
