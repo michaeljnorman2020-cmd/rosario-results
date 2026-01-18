@@ -228,7 +228,7 @@ const App = () => {
     },
     {
       date: 'Sunday, 18th January 2026',
-      sortDate: '2026-01-18'
+      sortDate: '2026-01-18',
       opponent: 'Gonerby Yellow',
       home: false,
       score: { for: 4, against: 1 },
