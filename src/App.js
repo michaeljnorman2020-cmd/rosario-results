@@ -245,6 +245,45 @@ const App = () => {
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 25th January 2026',
+      sortDate: '2026-01-25',
+      opponent: 'Eastwood Athletic Atalanta',
+      home: false,
+      score: { for: 0, against: {
+      date: 'Sunday, 7th September 2025',
+      sortDate: '2025-09-07',
+      opponent: 'Eastwood Athletic Atalanta',
+      home: true,
+      score: { for: 5, against: 2 },
+      location: 'Gresham 3G',
+      stats: {
+        Chester: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Ethan: { mins: 27, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 37, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 45, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}, 
+        Oliver: { mins: 38, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 47, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
+    }
+      location: 'Gresham Grass',
+      stats: {
+        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
+        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
+        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
+        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
+      }
     }
     
     // ADD NEW MATCHES HERE - just copy the format above
