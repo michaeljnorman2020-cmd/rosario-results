@@ -250,7 +250,7 @@ const App = () => {
       date: 'Sunday, 25th January 2026',
       sortDate: '2026-01-25',
       opponent: 'Eastwood Athletic Atalanta',
-      home: true,
+      home: false,
       score: { for: 0, against: 1 },
       location: 'Gresham 3G',
       stats: {
