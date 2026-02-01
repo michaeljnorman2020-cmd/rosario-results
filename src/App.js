@@ -265,6 +265,26 @@ const App = () => {
         Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 47, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 1st February 2026',
+      sortDate: '2026-02-01',
+      opponent: 'Cotgrave White',
+      home: true,
+      score: { for: 3, against: 4 },
+      location: 'NES Grass',
+      stats: {
+        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 50, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        'George B': { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 50, pom: false},
+        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false}, 
+        Oliver: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: true},
+        Salar: { mins: 50, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
     
     // ADD NEW MATCHES HERE - just copy the format above
