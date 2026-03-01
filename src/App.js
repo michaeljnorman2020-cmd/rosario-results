@@ -278,12 +278,32 @@ const App = () => {
         Ethan: { mins: 50, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
         'George B': { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
         'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 50, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Noah: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false}, 
         Oliver: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
         Salar: { mins: 50, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
+    },
+    {
+      date: 'Sunday, 1st March 2026',
+      sortDate: '2026-03-01',
+      opponent: 'Cotgrave White',
+      home: true,
+      score: { for: 5, against: 1 },
+      location: 'NES Grass',
+      stats: {
+        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 42, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 42, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        Jimmy: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
+        Oliver: { mins: 42, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 41, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
       }
     }
     
