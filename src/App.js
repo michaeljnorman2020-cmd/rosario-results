@@ -316,7 +316,7 @@ const App = () => {
       stats: {
         Chester: { mins: 42, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
         Ethan: { mins: 32, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        'George B': { mins: 33, goals: 0, assists: 1, gk: true, sub: false, gkMins: 0, pom: false},
+        'George B': { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
         'George G': { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Jimmy: { mins: 42, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
