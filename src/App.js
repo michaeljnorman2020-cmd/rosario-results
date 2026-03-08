@@ -297,13 +297,33 @@ const App = () => {
         Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Ethan: { mins: 42, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
         'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 42, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        'George G': { mins: 42, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
         Jimmy: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
         Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
         Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
         Oliver: { mins: 42, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Salar: { mins: 41, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
+    },
+    {
+      date: 'Sunday, 8th March 2026',
+      sortDate: '2026-03-08',
+      opponent: 'Gonerby Yellow',
+      home: false,
+      score: { for: 3, against: 1 },
+      location: 'Gonerby Grass',
+      stats: {
+        Chester: { mins: 42, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Ethan: { mins: 32, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
+        'George B': { mins: 33, goals: 0, assists: 1, gk: true, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Jimmy: { mins: 42, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Leo: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Noah: { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
+        Oliver: { mins: 33, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 33, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
       }
     }
     
