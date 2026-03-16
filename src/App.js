@@ -325,6 +325,26 @@ const App = () => {
         Salar: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
         Seb: { mins: 33, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
       }
+    },
+    {
+      date: 'Sunday, 15th March 2026',
+      sortDate: '2026-03-15',
+      opponent: 'WBC Sporting',
+      home: true,
+      score: { for: 2, against: 2 },
+      location: 'Regatta Way Grass',
+      stats: {
+        Chester: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Ethan: { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
+        'George B': { mins: 41, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
+        'George G': { mins: 34, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
+        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
+        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
+        Noah: { mins: 33, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Oliver: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
+        Seb: { mins: 34, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
+      }
     }
     
     // ADD NEW MATCHES HERE - just copy the format above
