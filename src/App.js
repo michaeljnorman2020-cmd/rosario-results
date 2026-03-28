@@ -1,519 +1,160 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { supabase } from './supabaseClient';
+import PlayerProfile from './PlayerProfile';
 
 const App = () => {
-  // Player names in alphabetical order
-  const players = ['Chester', 'Ethan', 'George B', 'George G', 'Jimmy', 'Leo', 'Noah', 'Oliver', 'Salar', 'Seb'];
-  
-  // Match data - ADD NEW MATCHES HERE
-  const [matches] = useState([
-    {
-      date: 'Sunday, 7th September 2025',
-      sortDate: '2025-09-07',
-      opponent: 'Eastwood Athletic Atalanta',
-      home: true,
-      score: { for: 5, against: 2 },
-      location: 'Gresham Grass',
-      stats: {
-        Chester: { mins: 37.5, goals: 1, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 37.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 0, assists: 3, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
-        Oliver: { mins: 37.5, goals: 3, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 14th September 2025',
-      sortDate: '2025-09-14',
-      opponent: 'Cotgrave White',
-      home: false,
-      score: { for: 10, against: 0 },
-      location: 'Cotgrave Grass',
-      stats: {
-        Chester: { mins: 50, goals: 3, assists: 2, gk: true, sub: false, gkMins: 12.5, pom: true},
-        Ethan: { mins: 50, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Noah: { mins: 50, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 21st September 2025',
-      sortDate: '2025-09-21',
-      opponent: 'Coalville Town Ravenettes',
-      home: true,
-      score: { for: 2, against: 1 },
-      location: 'Regatta Way Grass',
-      stats: {
-        Chester: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 1, gk: true, sub: false, gkMins: 25, pom: true},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: true, gkMins: 12.5, pom: false},
-        Noah: { mins: 37.5, goals: 1, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
-        Oliver: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 28th September 2025',
-      sortDate: '2025-09-28',
-      opponent: 'Wollaton H&B Gold',
-      home: true,
-      score: { for: 3, against: 2 },
-      location: 'Trinity School Grass',
-      stats: {
-        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 32.5, goals: 1, assists: 1, gk: false, sub: true, gkMins: 0, pom: true},
-        Jimmy: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Noah: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 50, goals: 2, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 42.5, goals: 0, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 5th October 2025',
-      sortDate: '2025-10-05',
-      opponent: 'Carlton Town Blue',
-      home: true,
-      score: { for: 1, against: 3 },
-      location: 'Gresham 3G',
-      stats: {
-        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 45, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 34, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        'George G': { mins: 34, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 47.5, goals: 0, assists: 1, gk: true, sub: false, gkMins: 37.5, pom: false},
-        Leo: { mins: 47.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: true},
-        Noah: { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Salar: { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 12th October 2025',
-      sortDate: '2025-10-12',
-      opponent: 'WBC Leverkusen',
-      home: false,
-      score: { for: 1, against: 9 },
-      location: 'Gresham 3G',
-      stats: {
-        Chester: { mins: 47.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Ethan: { mins: 35, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 45, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 35, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: true},
-        Noah: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Oliver: { mins: 35, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 42.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 2nd November 2025',
-      sortDate: '2025-11-02',
-      opponent: 'Gedling Southbank Whites',
-      home: false,
-      score: { for: 0, against: 7 },
-      location: 'Redhill 3G',
-      stats: {
-        Chester: { mins: 47, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12, pom: false},
-        Ethan: { mins: 48, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 44, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Jimmy: { mins: 43, goals: 0, assists: 0, gk: true, sub: false, gkMins: 27, pom: false},
-        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 46, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 46, goals: 0, assists: 0, gk: true, sub: false, gkMins: 11, pom: false},
-        Seb: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 9th November 2025',
-      sortDate: '2025-11-09',
-      opponent: 'Clifton AW Green',
-      home: true,
-      score: { for: 1, against: 5 },
-      location: 'Regatta Way Grass',
-      stats: {
-        Chester: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 25, pom: true},
-        Ethan: { mins: 42, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        'George B': { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 16th November 2025',
-      sortDate: '2025-11-16',
-      opponent: 'Cotgrave Green',
-      home: false,
-      score: { for: 1, against: 8 },
-      location: 'South Notts Academy 3G',
-      stats: {
-        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
-        Leo: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Noah: { mins: 37.5, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
-        Oliver: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 37.5, goals: 0, assists: 0, gk: true, sub: true, gkMins: 12.5, pom: false},
-        Seb: { mins: 37.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 30th November 2025',
-      sortDate: '2025-11-30',
-      opponent: 'PFA White',
-      home: false,
-      score: { for: 2, against: 4 },
-      location: 'Great Ponton Grass',
-      stats: {
-        Chester: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Ethan: { mins: 42.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 42.5, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: true},
-        'George G': { mins: 42.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 42.5, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
-        Oliver: { mins: 42.5, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Seb: { mins: 42.5, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 6th December 2025',
-      sortDate: '2025-12-06',
-      opponent: 'Ernehale',
-      home: true,
-      score: { for: 0, against: 2 },
-      location: 'NES Grass',
-      stats: {
-        Chester: { mins: 42, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Ethan: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 42, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
-        Leo: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
-        Oliver: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 40, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 18th January 2026',
-      sortDate: '2026-01-18',
-      opponent: 'Gonerby Yellow',
-      home: false,
-      score: { for: 4, against: 1 },
-      location: 'Gonerby Grass',
-      stats: {
-        Chester: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Ethan: { mins: 34, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        'George B': { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 42, goals: 0, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 2, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
-        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 42, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 25th January 2026',
-      sortDate: '2026-01-25',
-      opponent: 'Eastwood Athletic Atalanta',
-      home: false,
-      score: { for: 0, against: 1 },
-      location: 'Gresham 3G',
-      stats: {
-        Chester: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Ethan: { mins: 27, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 37, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        'George G': { mins: 36, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 45, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 30, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}, 
-        Oliver: { mins: 38, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 47, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 1st February 2026',
-      sortDate: '2026-02-01',
-      opponent: 'Cotgrave White',
-      home: true,
-      score: { for: 3, against: 4 },
-      location: 'NES Grass',
-      stats: {
-        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 50, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        'George B': { mins: 50, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false}, 
-        Oliver: { mins: 50, goals: 0, assists: 1, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Salar: { mins: 50, goals: 1, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 50, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 1st March 2026',
-      sortDate: '2026-03-01',
-      opponent: 'Cotgrave White',
-      home: true,
-      score: { for: 5, against: 1 },
-      location: 'NES Grass',
-      stats: {
-        Chester: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 42, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 42, goals: 1, assists: 0, gk: false, sub: true, gkMins: 0, pom: true},
-        Jimmy: { mins: 50, goals: 2, assists: 1, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Noah: { mins: 42, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}, 
-        Oliver: { mins: 42, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 41, goals: 1, assists: 2, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 8th March 2026',
-      sortDate: '2026-03-08',
-      opponent: 'Gonerby Yellow',
-      home: false,
-      score: { for: 3, against: 1 },
-      location: 'Gonerby Grass',
-      stats: {
-        Chester: { mins: 42, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Ethan: { mins: 32, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: true},
-        'George B': { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
-        'George G': { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 42, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Leo: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
-        Oliver: { mins: 33, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 33, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 15th March 2026',
-      sortDate: '2026-03-15',
-      opponent: 'WBC Sporting',
-      home: true,
-      score: { for: 2, against: 2 },
-      location: 'Regatta Way Grass',
-      stats: {
-        Chester: { mins: 34, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Ethan: { mins: 33, goals: 0, assists: 1, gk: false, sub: true, gkMins: 0, pom: false},
-        'George B': { mins: 41, goals: 0, assists: 1, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 34, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Jimmy: { mins: 50, goals: 1, assists: 0, gk: true, sub: false, gkMins: 25, pom: true},
-        Leo: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Noah: { mins: 33, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Oliver: { mins: 41, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Salar: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Seb: { mins: 34, goals: 1, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    },
-    {
-      date: 'Sunday, 22nd March 2026',
-      sortDate: '2026-03-22',
-      opponent: 'Borrowash Jaguars',
-      home: false,
-      score: { for: 2, against: 2 },
-      location: 'Borrowash Grass',
-      stats: {
-        Chester: { mins: 50, goals: 0, assists: 0, gk: true, sub: false, gkMins: 25, pom: false},
-        Ethan: { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George B': { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        'George G': { mins: 40, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Jimmy: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Leo: { mins: 0, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false},
-        Noah: { mins: 40, goals: 0, assists: 0, gk: false, sub: true, gkMins: 0, pom: false},
-        Oliver: { mins: 47.5, goals: 2, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: true},
-        Salar: { mins: 47.5, goals: 0, assists: 0, gk: true, sub: false, gkMins: 12.5, pom: false},
-        Seb: { mins: 45, goals: 0, assists: 0, gk: false, sub: false, gkMins: 0, pom: false}
-      }
-    }
-    // ADD NEW MATCHES HERE - just copy the format above
-  ]);
-  
+  const [players, setPlayers] = useState([]);
+  const [matches, setMatches] = useState([]);
+  const [matchStats, setMatchStats] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [expandedMatch, setExpandedMatch] = useState(null);
-  
-  // Calculate season stats
-  const calculateSeasonStats = () => {
-    let stats = {
-      played: matches.length,
-      won: 0,
-      drawn: 0,
-      lost: 0,
-      goalsFor: 0,
-      goalsAgainst: 0
+  const [selectedPlayer, setSelectedPlayer] = useState(null);
+
+  // ── Fetch all data ──────────────────────────────────────────
+  useEffect(() => {
+    const fetchAll = async () => {
+      setLoading(true);
+      try {
+        const [playersRes, matchesRes, statsRes] = await Promise.all([
+          supabase.from('players').select('*').order('name'),
+          supabase.from('matches').select('*').order('date', { ascending: false }),
+          supabase.from('match_stats').select('*'),
+        ]);
+
+        if (playersRes.error) throw playersRes.error;
+        if (matchesRes.error) throw matchesRes.error;
+        if (statsRes.error) throw statsRes.error;
+
+        setPlayers(playersRes.data);
+        setMatches(matchesRes.data);
+        setMatchStats(statsRes.data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     };
-    
-    matches.forEach(match => {
-      stats.goalsFor += match.score.for;
-      stats.goalsAgainst += match.score.against;
-      
-      if (match.score.for > match.score.against) stats.won++;
-      else if (match.score.for === match.score.against) stats.drawn++;
-      else stats.lost++;
+
+    fetchAll();
+  }, []);
+
+  // ── Derived stats ───────────────────────────────────────────
+  const seasonStats = useMemo(() => {
+    return matches.reduce((acc, m) => {
+      acc.played++;
+      acc.goalsFor += m.score_for;
+      acc.goalsAgainst += m.score_against;
+      if (m.score_for > m.score_against) acc.won++;
+      else if (m.score_for === m.score_against) acc.drawn++;
+      else acc.lost++;
+      return acc;
+    }, { played: 0, won: 0, drawn: 0, lost: 0, goalsFor: 0, goalsAgainst: 0 });
+  }, [matches]);
+
+  const playerStats = useMemo(() => {
+    const map = {};
+    players.forEach(p => {
+      map[p.id] = { appearances: 0, goals: 0, assists: 0, gkAppearances: 0, pom: 0 };
     });
-    
-    return stats;
-  };
-  
-  // Calculate player stats
-  const calculatePlayerStats = () => {
-    let playerStats = {};
-    
-    players.forEach(player => {
-      playerStats[player] = {
-        appearances: 0,
-        goals: 0,
-        assists: 0,
-        gkAppearances: 0
-      };
+    matchStats.forEach(s => {
+      if (!map[s.player_id]) return;
+      if (s.mins > 0) {
+        map[s.player_id].appearances++;
+        map[s.player_id].goals += s.goals;
+        map[s.player_id].assists += s.assists;
+        if (s.gk) map[s.player_id].gkAppearances++;
+        if (s.pom) map[s.player_id].pom++;
+      }
     });
-    
-    matches.forEach(match => {
-      Object.keys(match.stats).forEach(player => {
-        const stats = match.stats[player];
-        if (stats.mins > 0) {
-          playerStats[player].appearances++;
-          playerStats[player].goals += stats.goals;
-          playerStats[player].assists += stats.assists;
-          if (stats.gk) playerStats[player].gkAppearances++;
-        }
-      });
-    });
-    
-    return playerStats;
-  };
-  
-  // Calculate goalkeeper games with fractions
-  const calculateGkGames = () => {
-    let gkStats = {};
-    
-    matches.forEach(match => {
-      Object.keys(match.stats).forEach(player => {
-        const stats = match.stats[player];
-        if (stats.gk && stats.gkMins > 0) {
-          if (!gkStats[player]) {
-            gkStats[player] = { occurrences: 0, totalTime: 0 };
-          }
-          gkStats[player].occurrences++;
-          gkStats[player].totalTime += stats.gkMins / 50; // gkMins divided by 50 mins per game
-        }
-      });
-    });
-    
-    return gkStats;
-  };
-  
-  const seasonStats = calculateSeasonStats();
-  const playerStats = calculatePlayerStats();
-  const gkGames = calculateGkGames();
-  
-  // Get top scorers/assisters
-  const getTopScorers = () => {
-    return Object.entries(playerStats)
-      .filter(([_, stats]) => stats.goals > 0)
-      .sort((a, b) => b[1].goals - a[1].goals)
-      .slice(0, 3);
-  };
-  
-  const getTopAssisters = () => {
-    return Object.entries(playerStats)
-      .filter(([_, stats]) => stats.assists > 0)
-      .sort((a, b) => b[1].assists - a[1].assists)
-      .slice(0, 3);
-  };
-  
-  const getTopGk = () => {
-    return Object.entries(gkGames)
-      .sort((a, b) => b[1].occurrences - a[1].occurrences || b[1].totalTime - a[1].totalTime)
-      .slice(0, 3);
-  };
-  
-  const getMatchResult = (match) => {
-    if (match.score.for > match.score.against) return 'win';
-    if (match.score.for < match.score.against) return 'loss';
-    return 'draw';
-  };
-  
-  const toggleMatch = (index) => {
-    setExpandedMatch(expandedMatch === index ? null : index);
+    return map;
+  }, [players, matchStats]);
+
+  // Stats for a specific match, keyed by player_id
+  const statsForMatch = (matchId) => {
+    const map = {};
+    matchStats
+      .filter(s => s.match_id === matchId)
+      .forEach(s => { map[s.player_id] = s; });
+    return map;
   };
 
+  const getResult = (m) => {
+    if (m.score_for > m.score_against) return 'win';
+    if (m.score_for < m.score_against) return 'loss';
+    return 'draw';
+  };
+
+  const topScorers = useMemo(() =>
+    Object.entries(playerStats)
+      .filter(([, s]) => s.goals > 0)
+      .sort((a, b) => b[1].goals - a[1].goals)
+      .slice(0, 3)
+      .map(([id, s]) => ({ player: players.find(p => p.id === id), stats: s })),
+    [playerStats, players]);
+
+  const topAssisters = useMemo(() =>
+    Object.entries(playerStats)
+      .filter(([, s]) => s.assists > 0)
+      .sort((a, b) => b[1].assists - a[1].assists)
+      .slice(0, 3)
+      .map(([id, s]) => ({ player: players.find(p => p.id === id), stats: s })),
+    [playerStats, players]);
+
+  // ── Loading / error states ──────────────────────────────────
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-gray-500 text-sm">Loading…</div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+        <div className="bg-red-50 text-red-700 rounded-lg p-4 text-sm max-w-md">
+          <strong>Error loading data:</strong> {error}
+        </div>
+      </div>
+    );
+  }
+
+  // ── Main render ─────────────────────────────────────────────
   return (
     <div className="min-h-screen bg-gray-50">
       <style>{`
         .stat-appearances { color: #2196F3; font-weight: 600; }
-        .stat-goals { color: #4CAF50; font-weight: 600; }
-        .stat-assists { color: #FF9800; font-weight: 600; }
-        .stat-gk { color: #9C27B0; font-weight: 600; }
-        .highlight { color: #DC143C; font-weight: 600; }
+        .stat-goals       { color: #4CAF50; font-weight: 600; }
+        .stat-assists     { color: #FF9800; font-weight: 600; }
+        .stat-gk          { color: #9C27B0; font-weight: 600; }
+        .highlight        { color: #DC143C; font-weight: 600; }
       `}</style>
-      
+
       {/* Header */}
       <div className="bg-gradient-to-br from-red-700 to-red-900 text-white py-6 text-center shadow-md">
         <h1 className="text-2xl font-bold mb-1">West Bridgford Colts U10 Rosario</h1>
         <div className="text-sm opacity-90">Season 2025/26 Results & Stats</div>
       </div>
-      
+
       <div className="max-w-6xl mx-auto p-5">
+
         {/* Season Summary */}
         <div className="bg-white rounded-lg p-5 mb-5 shadow">
           <h2 className="text-xl font-bold mb-4">Season Summary</h2>
           <div className="grid grid-cols-4 gap-4 mb-4">
-            <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-black-700">{seasonStats.played}</div>
-              <div className="text-xs uppercase text-gray-600 mt-1">Played</div>
-            </div>
-            <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-green-700">{seasonStats.won}</div>
-              <div className="text-xs uppercase text-gray-600 mt-1">Won</div>
-            </div>
-            <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-amber-700">{seasonStats.drawn}</div>
-              <div className="text-xs uppercase text-gray-600 mt-1">Drawn</div>
-            </div>
-            <div className="text-center p-3 bg-gray-50 rounded">
-              <div className="text-3xl font-bold text-red-700">{seasonStats.lost}</div>
-              <div className="text-xs uppercase text-gray-600 mt-1">Lost</div>
-            </div>
+            {[
+              { label: 'Played', value: seasonStats.played, colour: 'text-gray-800' },
+              { label: 'Won',    value: seasonStats.won,    colour: 'text-green-700' },
+              { label: 'Drawn',  value: seasonStats.drawn,  colour: 'text-amber-700' },
+              { label: 'Lost',   value: seasonStats.lost,   colour: 'text-red-700'   },
+            ].map(({ label, value, colour }) => (
+              <div key={label} className="text-center p-3 bg-gray-50 rounded">
+                <div className={`text-3xl font-bold ${colour}`}>{value}</div>
+                <div className="text-xs uppercase text-gray-600 mt-1">{label}</div>
+              </div>
+            ))}
           </div>
           <div className="grid grid-cols-3 gap-4">
             <div className="text-center p-3 bg-gray-50 rounded">
@@ -528,164 +169,132 @@ const App = () => {
               <div className={`text-3xl font-bold ${seasonStats.goalsFor - seasonStats.goalsAgainst >= 0 ? 'text-green-600' : 'text-red-600'}`}>
                 {seasonStats.goalsFor - seasonStats.goalsAgainst > 0 ? '+' : ''}{seasonStats.goalsFor - seasonStats.goalsAgainst}
               </div>
-              <div className="text-xs uppercase text-gray-600 mt-1">Goal Difference</div>
+              <div className="text-xs uppercase text-gray-600 mt-1">Goal Diff</div>
             </div>
           </div>
         </div>
-        
+
         {/* Leaderboards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-5">
-          <div className="bg-white rounded-lg p-4 shadow">
-            <h3 className="text-sm font-bold text-center mb-3">⚽ Top Scorers</h3>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-red-700">
-                  <th className="text-left text-xs uppercase text-gray-600 py-2">Player</th>
-                  <th className="text-center text-xs uppercase text-gray-600 py-2">Goals</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getTopScorers().map(([player, stats]) => (
-                  <tr key={player} className="border-b border-gray-100">
-                    <td className="py-2 text-sm">{player}</td>
-                    <td className="py-2 text-sm text-center font-bold text-red-700">{stats.goals}</td>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-5">
+          {[
+            { title: '⚽ Top Scorers',  data: topScorers,   key: 'goals',   label: 'Goals'   },
+            { title: '🎯 Top Assists',  data: topAssisters, key: 'assists', label: 'Assists' },
+          ].map(({ title, data, key, label }) => (
+            <div key={title} className="bg-white rounded-lg p-4 shadow">
+              <h3 className="text-sm font-bold text-center mb-3">{title}</h3>
+              <table className="w-full">
+                <thead>
+                  <tr className="border-b-2 border-red-700">
+                    <th className="text-left text-xs uppercase text-gray-600 py-2">Player</th>
+                    <th className="text-center text-xs uppercase text-gray-600 py-2">{label}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="bg-white rounded-lg p-4 shadow">
-            <h3 className="text-sm font-bold text-center mb-3">🎯 Top Assists</h3>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-red-700">
-                  <th className="text-left text-xs uppercase text-gray-600 py-2">Player</th>
-                  <th className="text-center text-xs uppercase text-gray-600 py-2">Assists</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getTopAssisters().map(([player, stats]) => (
-                  <tr key={player} className="border-b border-gray-100">
-                    <td className="py-2 text-sm">{player}</td>
-                    <td className="py-2 text-sm text-center font-bold text-red-700">{stats.assists}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-          
-          <div className="bg-white rounded-lg p-4 shadow">
-            <h3 className="text-sm font-bold text-center mb-3">🧤 Goalkeeper Games</h3>
-            <table className="w-full">
-              <thead>
-                <tr className="border-b-2 border-red-700">
-                  <th className="text-left text-xs uppercase text-gray-600 py-2">Player</th>
-                  <th className="text-center text-xs uppercase text-gray-600 py-2">Games</th>
-                </tr>
-              </thead>
-              <tbody>
-                {getTopGk().map(([player, stats]) => (
-                  <tr key={player} className="border-b border-gray-100">
-                    <td className="py-2 text-sm">{player}</td>
-                    <td className="py-2 text-sm text-center font-bold text-red-700">
-                      {stats.occurrences} ({stats.totalTime.toFixed(2)})
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {data.map(({ player, stats }) => player && (
+                    <tr key={player.id} className="border-b border-gray-100">
+                      <td className="py-2 text-sm">{player.name}</td>
+                      <td className="py-2 text-sm text-center font-bold text-red-700">{stats[key]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ))}
+        </div>
+
+        {/* Player Cards */}
+        <div className="bg-white rounded-lg p-5 mb-5 shadow">
+          <h2 className="text-lg font-bold mb-4">Squad</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
+            {players.map(player => {
+              const s = playerStats[player.id] ?? {};
+              return (
+                <button
+                  key={player.id}
+                  onClick={() => setSelectedPlayer(player)}
+                  className="bg-gray-50 hover:bg-red-50 border border-gray-200 hover:border-red-300 rounded-lg p-3 text-center transition-colors cursor-pointer"
+                >
+                  <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mx-auto mb-2 overflow-hidden">
+                    {player.photo_url
+                      ? <img src={player.photo_url} alt={player.name} className="w-full h-full object-cover" />
+                      : <span className="text-2xl">👤</span>
+                    }
+                  </div>
+                  <div className="text-xs text-gray-400">#{player.squad_number ?? '—'}</div>
+                  <div className="font-semibold text-sm text-gray-800">{player.name}</div>
+                  <div className="text-xs text-gray-500 mt-1">
+                    {s.goals ?? 0}G · {s.assists ?? 0}A
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
-        
-        {/* Season Player Statistics */}
+
+        {/* Season Player Stats Table */}
         <div className="bg-white rounded-lg p-5 mb-5 shadow overflow-x-auto">
           <h2 className="text-lg font-bold mb-4">Season Player Statistics</h2>
           <table className="w-full text-sm">
             <thead className="bg-gray-50">
               <tr>
                 <th className="text-left p-2 border-b-2 border-red-700"></th>
-                {players.map(player => (
-                  <th key={player} className="text-center p-2 border-b-2 border-red-700 font-semibold">
-                    {player}
-                  </th>
+                {players.map(p => (
+                  <th key={p.id} className="text-center p-2 border-b-2 border-red-700 font-semibold">{p.name}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b">
-                <td className="p-2 font-semibold text-gray-600">Appearances</td>
-                {players.map(player => (
-                  <td key={player} className="text-center p-2">
-                    {playerStats[player].appearances > 0 && (
-                      <span className="stat-appearances">{playerStats[player].appearances}</span>
-                    )}
-                    {playerStats[player].appearances === 0 && '-'}
-                  </td>
-                ))}
-              </tr>
-              <tr className="border-b">
-                <td className="p-2 font-semibold text-gray-600">Goals</td>
-                {players.map(player => (
-                  <td key={player} className="text-center p-2">
-                    {playerStats[player].goals > 0 && (
-                      <span className="stat-goals">{playerStats[player].goals}</span>
-                    )}
-                    {playerStats[player].goals === 0 && '-'}
-                  </td>
-                ))}
-              </tr>
-              <tr className="border-b">
-                <td className="p-2 font-semibold text-gray-600">Assists</td>
-                {players.map(player => (
-                  <td key={player} className="text-center p-2">
-                    {playerStats[player].assists > 0 && (
-                      <span className="stat-assists">{playerStats[player].assists}</span>
-                    )}
-                    {playerStats[player].assists === 0 && '-'}
-                  </td>
-                ))}
-              </tr>
-              <tr>
-                <td className="p-2 font-semibold text-gray-600">GK Appearances</td>
-                {players.map(player => (
-                  <td key={player} className="text-center p-2">
-                    {playerStats[player].gkAppearances > 0 && (
-                      <span className="stat-gk">{playerStats[player].gkAppearances}</span>
-                    )}
-                    {playerStats[player].gkAppearances === 0 && '-'}
-                  </td>
-                ))}
-              </tr>
+              {[
+                { label: 'Appearances', key: 'appearances', cls: 'stat-appearances' },
+                { label: 'Goals',       key: 'goals',       cls: 'stat-goals'       },
+                { label: 'Assists',     key: 'assists',     cls: 'stat-assists'     },
+                { label: 'GK Apps',     key: 'gkAppearances', cls: 'stat-gk'        },
+                { label: "Player's Player", key: 'pom',     cls: 'highlight'        },
+              ].map(({ label, key, cls }) => (
+                <tr key={label} className="border-b">
+                  <td className="p-2 font-semibold text-gray-600 whitespace-nowrap">{label}</td>
+                  {players.map(p => {
+                    const val = playerStats[p.id]?.[key] ?? 0;
+                    return (
+                      <td key={p.id} className="text-center p-2">
+                        {val > 0 ? <span className={cls}>{val}</span> : '-'}
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
-        
+
         {/* Match Cards */}
-        {matches
-          .map((match, index) => ({ ...match, originalIndex: index }))
-          .sort((a, b) => new Date(b.sortDate) - new Date(a.sortDate))
-          .map((match, displayIndex) => (
-            <div key={match.originalIndex} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
-              <div 
+        {matches.map(match => {
+          const result = getResult(match);
+          const mStats = statsForMatch(match.id);
+          const isExpanded = expandedMatch === match.id;
+
+          return (
+            <div key={match.id} className="bg-white rounded-lg mb-4 shadow overflow-hidden">
+              <div
                 className="p-4 bg-gray-50 border-b cursor-pointer hover:bg-gray-100 transition-colors"
-                onClick={() => toggleMatch(match.originalIndex)}
+                onClick={() => setExpandedMatch(isExpanded ? null : match.id)}
               >
-                <div className="text-xs text-gray-600 mb-2">{match.date}</div>
-                <div className="flex justify-between items-center flex-wrap">
+                <div className="text-xs text-gray-600 mb-2">
+                  {new Date(match.date).toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' })}
+                </div>
+                <div className="flex justify-between items-center flex-wrap gap-2">
                   <div className="text-lg font-semibold">
                     {match.home ? 'Rosario' : match.opponent} vs {match.home ? match.opponent : 'Rosario'}
                   </div>
                   <div className={`text-2xl font-bold px-4 py-1 rounded text-white
-                    ${getMatchResult(match) === 'win' ? 'bg-green-500' : 
-                      getMatchResult(match) === 'loss' ? 'bg-red-500' : 'bg-orange-500'}`}>
-                    {match.score.for} - {match.score.against}
+                    ${result === 'win' ? 'bg-green-500' : result === 'loss' ? 'bg-red-500' : 'bg-orange-500'}`}>
+                    {match.score_for} – {match.score_against}
                   </div>
                 </div>
                 <div className="text-xs text-gray-600 mt-2">📍 {match.location}</div>
               </div>
-              
-              {expandedMatch === match.originalIndex && (
+
+              {isExpanded && (
                 <div className="p-5 border-t-2 border-red-700">
                   <h3 className="text-base font-bold mb-4">Player Statistics</h3>
                   <div className="overflow-x-auto">
@@ -693,72 +302,45 @@ const App = () => {
                       <thead className="bg-gray-50">
                         <tr>
                           <th className="text-left p-2 border-b-2 border-red-700"></th>
-                          {players.map(player => (
-                            <th key={player} className="text-center p-2 border-b-2 border-red-700 font-semibold">
-                              {player}
-                            </th>
+                          {players.map(p => (
+                            <th key={p.id} className="text-center p-2 border-b-2 border-red-700 font-semibold">{p.name}</th>
                           ))}
                         </tr>
                       </thead>
                       <tbody>
-                        <tr className="border-b">
-                          <td className="p-2 font-semibold text-gray-600">Minutes</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">{match.stats[player].mins}</td>
-                          ))}
-                        </tr>
-                        <tr className="border-b">
-                          <td className="p-2 font-semibold text-gray-600">Goals</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">
-                              {match.stats[player].goals > 0 ? (
-                                <span className="highlight">{match.stats[player].goals}</span>
-                              ) : '-'}
-                            </td>
-                          ))}
-                        </tr>
-                        <tr className="border-b">
-                          <td className="p-2 font-semibold text-gray-600">Assists</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">
-                              {match.stats[player].assists > 0 ? (
-                                <span className="highlight">{match.stats[player].assists}</span>
-                              ) : '-'}
-                            </td>
-                          ))}
-                        </tr>
-                        <tr className="border-b">
-                          <td className="p-2 font-semibold text-gray-600">GK</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">
-                              {match.stats[player].gk ? '🧤' : '-'}
-                            </td>
-                          ))}
-                        </tr>
-                        <tr className="border-b">
-                          <td className="p-2 font-semibold text-gray-600">Player's Player</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">
-                              {match.stats[player].pom ? '⭐' : '-'}
-                            </td>
-                          ))}
-                        </tr>
-                        <tr>
-                          <td className="p-2 font-semibold text-gray-600">Sub</td>
-                          {players.map(player => (
-                            <td key={player} className="text-center p-2">
-                              {match.stats[player].sub ? '🔄' : '-'}
-                            </td>
-                          ))}
-                        </tr>
+                        {[
+                          { label: 'Minutes', render: s => s?.mins ?? 0 },
+                          { label: 'Goals',   render: s => s?.goals > 0 ? <span className="highlight">{s.goals}</span> : '-' },
+                          { label: 'Assists', render: s => s?.assists > 0 ? <span className="highlight">{s.assists}</span> : '-' },
+                          { label: 'GK',      render: s => s?.gk ? '🧤' : '-' },
+                          { label: "Player's Player", render: s => s?.pom ? '⭐' : '-' },
+                          { label: 'Sub',     render: s => s?.sub ? '🔄' : '-' },
+                        ].map(({ label, render }) => (
+                          <tr key={label} className="border-b">
+                            <td className="p-2 font-semibold text-gray-600 whitespace-nowrap">{label}</td>
+                            {players.map(p => (
+                              <td key={p.id} className="text-center p-2">{render(mStats[p.id])}</td>
+                            ))}
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                   </div>
                 </div>
               )}
             </div>
-          ))}
+          );
+        })}
       </div>
+
+      {/* Player Profile Modal */}
+      {selectedPlayer && (
+        <PlayerProfile
+          player={selectedPlayer}
+          stats={playerStats[selectedPlayer.id]}
+          onClose={() => setSelectedPlayer(null)}
+        />
+      )}
     </div>
   );
 };
