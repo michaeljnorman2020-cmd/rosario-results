@@ -75,6 +75,8 @@ const AdminScreen = ({ players, onClose, onMatchSaved }) => {
     );
   const [playerRows, setPlayerRows] = useState(emptyStats);
 
+  const totalMins = Object.values(playerRows).reduce((sum, r) => sum + (Number(r.mins) || 0), 0);
+
   const updatePlayerField = (playerId, field, value) => {
     setPlayerRows(prev => ({
       ...prev,
@@ -315,6 +317,18 @@ const AdminScreen = ({ players, onClose, onMatchSaved }) => {
                 })}
               </tbody>
             </table>
+          </div>
+
+          {/* Total Minutes Counter */}
+          <div className="mt-3 flex items-center justify-end gap-2">
+            <span className="text-xs text-gray-500 uppercase tracking-wide font-semibold">Total minutes entered:</span>
+            <span className={`text-sm font-bold px-3 py-1 rounded-full ${
+              totalMins === 0
+                ? 'bg-gray-100 text-gray-500'
+                : 'bg-red-50 text-red-700 border border-red-200'
+            }`}>
+              ⏱ {totalMins} mins
+            </span>
           </div>
 
           {/* Errors / Success */}
